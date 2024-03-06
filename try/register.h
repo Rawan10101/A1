@@ -19,7 +19,7 @@ class Register : public QDialog
 public:
     explicit Register(QWidget *parent = nullptr);
     ~Register();
-
+   Welcome *dialogWindow1;
 private slots:
     void on_ReType_cursorPositionChanged(int arg1, int arg2);
     void on_pushButton_clicked();
@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::Register *ui;
-    Welcome *dialogWindow1;
+
     QButtonGroup *genderButtonGroup;
     QButtonGroup *accountButtonGroup;
     QGroupBox *favComboBox;
