@@ -31,7 +31,7 @@ private slots:
 
 private:
     Ui::Welcome *ui;
-    QLabel *imageLabel;
+    QLabel* imageLabel;
     QString m_name;
     QString m_password;
     QString m_age;
