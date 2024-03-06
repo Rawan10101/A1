@@ -38,20 +38,7 @@ void Register::on_ReType_cursorPositionChanged(int arg1, int arg2)
     }
 }
 
-void Register::on_pushButton_clicked()
-{
-    QString pass = ui->Pass->text();
-    QString retype = ui->ReType->text();
 
-    if (pass != retype) {
-        ui->reType->setText("Passwords should be equal");
-    } else {
-        ui->reType->setText("");
-        hide();
-        dialogWindow1->setModal(true);
-        dialogWindow1->exec();
-    }
-}
 
 void Register::on_Register_2_clicked()
 {
@@ -87,7 +74,7 @@ void Register::on_Register_2_clicked()
         ui->Age->setText("");
         dialogWindow1->setAge(QString::number(age));
     }
-
+        dialogWindow1->setAge(QString::number(age));
     if (pass != retype) {
         ui->reType->setText("Passwords should be equal");
         return;
@@ -105,7 +92,6 @@ void Register::on_Register_2_clicked()
     // If all fields are filled, proceed with registration
     handleRegistration();
 }
-
 
 
 
@@ -127,9 +113,24 @@ void Register::on_Register_2_clicked()
             ui->Username1->setText("Username already exists");
         } else {
             ui->Username1->setText("");
-            dialogWindow1->setName(ui->name2->text());
-        }
 
+        }
+            dialogWindow1->setName(name);
+    }
+
+    void Register::on_pushButton_clicked()
+    {
+        QString pass = ui->Pass->text();
+        QString retype = ui->ReType->text();
+
+        if (pass != retype) {
+            ui->reType->setText("Passwords should be equal");
+        } else {
+            ui->reType->setText("");
+            hide();
+            dialogWindow1->setModal(true);
+            dialogWindow1->exec();
+        }
     }
     void Register::handleRegistration()
     {
